@@ -1,0 +1,36 @@
+CREATE TABLE IF NOT EXISTS `i_love_english`.`url_source` (
+  `id` INT NOT NULL COMMENT '',
+  `title` VARCHAR(100) NULL COMMENT '',
+  `url` VARCHAR(100) NULL COMMENT '',
+  `create_time` TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP COMMENT '',
+  `contents` VARCHAR(10000) NULL COMMENT '',
+  PRIMARY KEY (`id`)  COMMENT '')
+ENGINE = InnoDB
+
+CREATE TABLE IF NOT EXISTS `i_love_english`.`sentence` (
+  `id` INT NOT NULL AUTO_INCREMENT COMMENT '',
+  `sentence` VARCHAR(10000) NULL COMMENT '',
+  `create_time` TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP COMMENT '',
+  `url_source_id` INT NOT NULL COMMENT '',
+  PRIMARY KEY (`id`)  COMMENT '',
+  INDEX `fk_sentence_url_source1_idx` (`url_source_id` ASC)  COMMENT '',
+  CONSTRAINT `fk_sentence_url_source1`
+    FOREIGN KEY (`url_source_id`)
+    REFERENCES `i_love_english`.`url_source` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB
+
+CREATE TABLE IF NOT EXISTS `i_love_english`.`user_vocabulary` (
+  `id` INT NOT NULL AUTO_INCREMENT COMMENT '',
+  `word` VARCHAR(100) NULL COMMENT '',
+  `createtime` TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP COMMENT '',
+  `sentence_id` INT NOT NULL COMMENT '',
+  PRIMARY KEY (`id`)  COMMENT '',
+  INDEX `fk_user_vocabulary_sentence_idx` (`sentence_id` ASC)  COMMENT '',
+  CONSTRAINT `fk_user_vocabulary_sentence`
+    FOREIGN KEY (`sentence_id`)
+    REFERENCES `i_love_english`.`sentence` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB
