@@ -5,6 +5,6 @@
 
 
 	<bean id="setence"
-		class="com.spark.learning.i_love_english.Sentence">
+		class="com.spark.learning.i_love_english.model.Sentence">
 	</bean>
 </beans>

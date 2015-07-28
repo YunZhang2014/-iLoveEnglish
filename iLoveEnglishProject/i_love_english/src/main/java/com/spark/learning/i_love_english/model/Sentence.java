@@ -1,4 +1,4 @@
-package com.spark.learning.i_love_english;
+package com.spark.learning.i_love_english.model;
 
 import javax.persistence.Entity;
 import javax.persistence.Table;

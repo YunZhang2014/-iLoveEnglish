@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.spark.learning.i_love_english;
+package com.spark.learning.i_love_english.model;
 
 /**
  * @author Yun
