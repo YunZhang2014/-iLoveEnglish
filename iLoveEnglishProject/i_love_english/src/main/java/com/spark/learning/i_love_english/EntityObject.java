@@ -7,7 +7,7 @@ package com.spark.learning.i_love_english;
  * @author Yun
  *
  */
-public class Entity {
+public class EntityObject {
    /** @pdOid ea5431f2-eb66-4134-9c10-f7b370dcfb67 */
    private int id;
    /** @pdOid e9635cda-11bb-49ea-9b49-2b22a6f7efe3 */
