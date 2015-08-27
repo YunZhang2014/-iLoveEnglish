@@ -1,16 +1,11 @@
 package com.spark.learning.i_love_english.service.longmanimpl;
 
+import static junit.framework.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 
-import java.io.BufferedReader;
 import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.io.Reader;
-import java.util.LinkedList;
 import java.util.List;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 import org.junit.After;
 import org.junit.Before;
@@ -19,27 +14,20 @@ import org.junit.Test;
 import com.spark.learning.i_love_english.model.AdjWordForm;
 import com.spark.learning.i_love_english.model.NounWordForm;
 import com.spark.learning.i_love_english.model.VerbWordForm;
-import com.spark.learning.i_love_english.model.VerbWordForm.Transitive;
 import com.spark.learning.i_love_english.model.WordForm;
 import com.spark.learning.i_love_english.service.WordAnalyser;
-
-import static junit.framework.Assert.*;
+import com.spark.learning.i_love_english.util.FileUtil;
 
 public class LongmanWordAnalyserTest {
 	
-	List<String> text = new LinkedList<String>();
-	InputStream inputStream;
+	List<String> text;
 	
 	@Before
 	public void setUp() throws Exception {
-		inputStream = this.getClass().getClassLoader().getResourceAsStream("resources/sample_words/subject.txt");
-		Reader reader = new InputStreamReader(inputStream,"UTF-8");
-		BufferedReader br = new BufferedReader(reader);
-		String line = null;
-		while((line = br.readLine()) != null){
-			text.add(line);
-		}
+		text = FileUtil.readResourceToLines("resources/sample_words/subject.txt");
 	}
+
+
 
 	@After
 	public void tearDown() throws Exception {
