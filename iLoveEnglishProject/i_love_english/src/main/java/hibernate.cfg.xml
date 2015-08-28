@@ -8,5 +8,22 @@
         <property name="hibernate.connection.password">zteZY203203</property>
         <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/i_love_english</property>
         <property name="hibernate.connection.username">root</property>
+        
+        <!-- JDBC connection pool (use the built-in) -->
+        <property name="connection.pool_size">2</property>
+
+        <!-- SQL dialect -->
+        <property name="dialect">org.hibernate.dialect.MySQLDialect</property>
+
+        <!-- Disable the second-level cache  -->
+        <property name="cache.provider_class">org.hibernate.cache.internal.NoCacheProvider</property>
+
+        <!-- Echo all executed SQL to stdout -->
+        <property name="show_sql">true</property>
+
+        <!-- Drop and re-create the database schema on startup -->
+        <property name="hbm2ddl.auto">create</property>
+
+        <mapping class="com.spark.learning.i_love_english.model.WordForm"/>
     </session-factory>
 </hibernate-configuration>

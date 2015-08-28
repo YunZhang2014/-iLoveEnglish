@@ -3,11 +3,25 @@
  */
 package com.spark.learning.i_love_english.model;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+import org.hibernate.annotations.GenericGenerator;
+
 /**
  * @author Yun
  *
  */
-public class WordForm {		
+@Entity
+@Table(name="word_form")
+public class WordForm {
+	@Id
+	@GeneratedValue(generator="increment")
+	@GenericGenerator(name="increment", strategy = "increment")
+	private Long id;
 	/**
 	 * The number of the entry in the dict.
 	 */
@@ -16,6 +30,7 @@ public class WordForm {
 	/**
 	 * is 1-based instead of 0-based
 	 */
+	@Column(name="line_no")
 	private int lineNo;
 	
 	private String headLine;
@@ -23,6 +38,7 @@ public class WordForm {
 	/**
 	 * The text every word form has
 	 */
+	@Column(name="text_content",length=4000)
 	private String textContent;
 	
 	public int getLineNo() {
@@ -45,7 +61,7 @@ public class WordForm {
 		this.headLine = headLine.trim();
 	}
 	
-
+	
 	public String getTextContent() {
 		return textContent;
 	}
@@ -61,4 +77,5 @@ public class WordForm {
 	public void setEntryNo(int entryNo) {
 		EntryNo = entryNo;
 	}
+	
 }
